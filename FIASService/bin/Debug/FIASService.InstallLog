@@ -1,0 +1,248 @@
+﻿Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба RequestFIAS...
+Служба RequestFIAS успешно установлена.
+Создается исходный EventLog RequestFIAS в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog RequestFIAS.
+Выполняется удаление службы RequestFIAS из системы...
+Служба RequestFIAS успешно удалена из системы.
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба RequestFIAS...
+Служба RequestFIAS успешно установлена.
+Создается исходный EventLog RequestFIAS в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog RequestFIAS.
+Выполняется удаление службы RequestFIAS из системы...
+Служба RequestFIAS успешно удалена из системы.
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба RequestFIAS...
+Служба RequestFIAS успешно установлена.
+Создается исходный EventLog RequestFIAS в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog RequestFIAS.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog RequestFIAS.
+Выполняется удаление службы RequestFIAS из системы...
+Служба RequestFIAS успешно удалена из системы.
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба RequestFIAS...
+Служба RequestFIAS успешно установлена.
+Создается исходный EventLog RequestFIAS в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Предупреждение. Источник FIAS-SERVICE не зарегистрирован на локальном компьютере.
+Выполняется удаление службы FIAS-SERVICE из системы...
+При выполнении программы установки System.ServiceProcess.ServiceInstaller во время установки возникло исключение.
+System.ComponentModel.Win32Exception: Указанная служба не установлена
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Предупреждение. Источник FIAS-SERVICE не зарегистрирован на локальном компьютере.
+Выполняется удаление службы FIAS-SERVICE из системы...
+При выполнении программы установки System.ServiceProcess.ServiceInstaller во время установки возникло исключение.
+System.ComponentModel.Win32Exception: Указанная служба не установлена
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Предупреждение. Источник FIAS-SERVICE не зарегистрирован на локальном компьютере.
+Выполняется удаление службы FIAS-SERVICE из системы...
+При выполнении программы установки System.ServiceProcess.ServiceInstaller во время установки возникло исключение.
+System.ComponentModel.Win32Exception: Указанная служба не установлена
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIAS-SERVICE...
+Служба FIAS-SERVICE успешно установлена.
+Создается исходный EventLog FIAS-SERVICE в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Выполняется удаление службы FIAS-SERVICE из системы...
+Служба FIAS-SERVICE успешно удалена из системы.
+Попытка останова службы FIAS-SERVICE.
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIAS-SERVICE...
+Служба FIAS-SERVICE успешно установлена.
+Создается исходный EventLog FIAS-SERVICE в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется установка сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIASService...
+Служба FIASService успешно установлена.
+Создается исходный EventLog FIASService в журнале Application...
+Выполняется фиксация сборки 'D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = D:\Alexey\FIAS\FIASService\bin\Debug\FIASService.exe
+Выполняется установка сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIASService...
+Служба FIASService успешно установлена.
+Создается исходный EventLog FIASService в журнале Application...
+Выполняется фиксация сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется установка сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIASService...
+Служба FIASService успешно установлена.
+Создается исходный EventLog FIASService в журнале Application...
+Выполняется фиксация сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Предупреждение. Источник FIAS-SERVICE не зарегистрирован на локальном компьютере.
+Выполняется удаление службы FIAS-SERVICE из системы...
+При выполнении программы установки System.ServiceProcess.ServiceInstaller во время установки возникло исключение.
+System.ComponentModel.Win32Exception: Указанная служба не установлена
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется удаление сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Предупреждение. Источник FIAS-SERVICE не зарегистрирован на локальном компьютере.
+Выполняется удаление службы FIAS-SERVICE из системы...
+При выполнении программы установки System.ServiceProcess.ServiceInstaller во время установки возникло исключение.
+System.ComponentModel.Win32Exception: Указанная служба не установлена
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIAS-SERVICE...
+Служба FIAS-SERVICE успешно установлена.
+Создается исходный EventLog FIAS-SERVICE в журнале Application...
+Выполняется фиксация сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Выполняется удаление источника EventLog FIAS-SERVICE.
+Выполняется удаление службы FIAS-SERVICE из системы...
+Служба FIAS-SERVICE успешно удалена из системы.
+Выполняется установка сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe
+Устанавливается служба FIAS-SERVICE...
+Служба FIAS-SERVICE успешно установлена.
+Создается исходный EventLog FIAS-SERVICE в журнале Application...
+Выполняется фиксация сборки 'X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.InstallLog
+   assemblypath = X:\УЧЁБА\ДИПЛОМ\PROGRAM\FIASService\bin\Debug\FIASService.exe

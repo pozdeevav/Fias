@@ -1,0 +1,370 @@
+﻿@model Dictionary<int, FiasClient.Models.AddrobjModel>.ValueCollection
+
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="~/Content/FulltextSearch.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<script>
+    var landCount = 0;
+    var houseCount = 0;
+
+    var ao = $('#aolevel').text();
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    if (ao == 6 || ao == 4) {
+        document.getElementById('table-information-land').innerHTML = "Элемент планировочной структуры";
+        document.getElementById('table-information-building').innerHTML = "Элемент улично-дорожной сети";
+    }
+
+    function DetailedInfo() {
+        document.getElementById('table-information-detailedinfo').className = "table-buttons-div-active";
+        document.getElementById('table-information-land').className = "table-buttons-div";
+        document.getElementById('table-information-building').className = "table-buttons-div";
+        document.getElementById('table-detailedinfo').style.display = "block";
+        document.getElementById('table-land').style.display = "none";
+        document.getElementById('table-house').style.display = "none";
+        document.getElementById('partial-loading').style.display = "none";
+    }
+
+    function GetFulltextStead() {
+        if ($('#data-aoguid').text() != "") {
+            if (landCount == 0) {
+                if (ao == 7 || ao == 65) {
+                    document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                    document.getElementById('table-information-land').className = "table-buttons-div-active";
+                    document.getElementById('table-information-building').className = "table-buttons-div"
+                    document.getElementById('partial-loading').style.display = "block";
+                    document.getElementById('table-detailedinfo').style.display = "none";
+                    document.getElementById('table-land').style.display = "none";
+                    document.getElementById('table-house').style.display = "none";
+                    $('#table-land-datas').empty();
+                    var Id = uuidv4();
+                    var Parent = $('#data-aoguid').text();
+                    $.ajax({
+                        url: "http://localhost:5000/request/fulltextsearchstead/" + Id + "/" + Parent,
+                        type: "POST"
+                    });
+                    $.ajax({
+                        url: "http://localhost:59615/response/get/" + Id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (a) {
+                            var response = a.data;
+                            var i = 0;
+                            while (i < Object.keys(response).length) {
+                                $('#table-land').append('<tr class="table-land-datas"><td class="land-data">земельный участок ' + response[i].NUMBER + '</td><td class="land-data">' + response[i].POSTALCODE + '</td><td class="land-data">' + response[i].IFNSFL + '</td><td class="land-data">' + response[i].IFNSUL + '</td><td class="land-data">' + response[i].OKATO + '</td><td class="land-data">' + response[i].OKTMO + '</td><td class="land-data">' + response[i].STEADGUID + '</td><td class="land-data">' + response[i].CADNUM + '</td><td class="land-data">---</td></tr>')
+                                i++;
+                            }
+                            document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                            document.getElementById('table-information-land').className = "table-buttons-div-active";
+                            document.getElementById('table-information-building').className = "table-buttons-div";
+                            document.getElementById('table-land').style.display = "block";
+                            document.getElementById('table-house').style.display = "none";
+                            document.getElementById('table-detailedinfo').style.display = "none";
+                            document.getElementById('partial-loading').style.display = "none";
+                            landCount++;
+                        }
+                    })
+                }
+                else if (ao == 6 || ao == 4) {
+                    document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                    document.getElementById('table-information-land').className = "table-buttons-div-active";
+                    document.getElementById('table-information-building').className = "table-buttons-div"
+                }
+            }
+            else if (landCount > 0) {
+                document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                document.getElementById('table-information-land').className = "table-buttons-div-active";
+                document.getElementById('table-information-building').className = "table-buttons-div";
+                document.getElementById('table-land').style.display = "block";
+                document.getElementById('table-house').style.display = "none";
+                document.getElementById('table-detailedinfo').style.display = "none";
+                document.getElementById('partial-loading').style.display = "none";
+            }
+        }
+    }
+
+    function GetFulltextHouse() {
+        if ($('#data-aoguid').text() != "") {
+            if (houseCount == 0) {
+                if (ao == 7 || ao == 65) {
+                    document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                    document.getElementById('table-information-land').className = "table-buttons-div";
+                    document.getElementById('table-information-building').className = "table-buttons-div-active"
+                    document.getElementById('partial-loading').style.display = "block";
+                    document.getElementById('table-detailedinfo').style.display = "none";
+                    document.getElementById('table-land').style.display = "none";
+                    document.getElementById('table-house').style.display = "none";
+                    $('#table-house-datas').empty();
+                    var Id = uuidv4();
+                    var Parent = $('#data-aoguid').text();
+                    $.ajax({
+                        url: "http://localhost:5000/request/fulltextsearchhouse/" + Id + "/" + Parent,
+                        type: "POST"
+                    });
+                    $.ajax({
+                        url: "http://localhost:59615/response/get/" + Id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (a) {
+                            var response = a.data;
+                            var i = 0;
+                            while (i < Object.keys(response).length) {
+                                $('#table-house').append('<tr class="table-house-datas"><td class="house-data">дом ' + response[i].HOUSENUM + '</td><td class="house-data">' + response[i].POSTALCODE + '</td><td class="house-data">' + response[i].IFNSFL + '</td><td class="house-data">' + response[i].IFNSUL + '</td><td class="house-data">' + response[i].OKATO + '</td><td class="house-data">' + response[i].OKTMO + '</td><td class="house-data">' + response[i].HOUSEGUID + '</td><td class="house-data">' + response[i].CADNUM + '</td><td class="house-data">---</td></tr>')
+                                i++;
+                            }
+                            document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                            document.getElementById('table-information-land').className = "table-buttons-div";
+                            document.getElementById('table-information-building').className = "table-buttons-div-active";
+                            document.getElementById('table-land').style.display = "none";
+                            document.getElementById('table-detailedinfo').style.display = "none";
+                            document.getElementById('table-house').style.display = "block";
+                            document.getElementById('partial-loading').style.display = "none";
+                            houseCount++;
+                        }
+                    })
+                }
+                else if (ao == 6 || ao == 4) {
+                    document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                    document.getElementById('table-information-land').className = "table-buttons-div";
+                    document.getElementById('table-information-building').className = "table-buttons-div-active"
+                    document.getElementById('partial-loading').style.display = "block";
+                    document.getElementById('table-detailedinfo').style.display = "none";
+                    document.getElementById('table-land').style.display = "none";
+                    document.getElementById('table-house').style.display = "none";
+                    $('#table-land-datas').empty();
+                    var Id = uuidv4();
+                    var Parent = $('#data-aoguid').text();
+                    $.ajax({
+                        url: "http://localhost:5000/request/fulltextsearchstreets/" + Id + "/" + Parent,
+                        type: "POST"
+                    });
+                    $.ajax({
+                        url: "http://localhost:59615/response/get/" + Id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (a) {
+                            var response = a.data;
+                            var i = 0;
+                            while (i < Object.keys(response).length) {
+                                $('#table-land').append('<tr class="table-land-datas"><td class="land-data">' + response[i].SHORTNAME + ' ' + response[i].FORMALNAME + '</td><td class="land-data">' + response[i].POSTALCODE + '</td><td class="land-data">' + response[i].IFNSFL + '</td><td class="land-data">' + response[i].IFNSUL + '</td><td class="land-data">' + response[i].OKATO + '</td><td class="land-data">' + response[i].OKTMO + '</td><td class="land-data">' + response[i].AOGUID + '</td><td class="land-data">---</td><td class="land-data">---</td></tr>')
+                                i++;
+                            }
+                            document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                            document.getElementById('table-information-land').className = "table-buttons-div-active";
+                            document.getElementById('table-information-building').className = "table-buttons-div";
+                            document.getElementById('table-land').style.display = "block";
+                            document.getElementById('table-house').style.display = "none";
+                            document.getElementById('table-detailedinfo').style.display = "none";
+                            document.getElementById('partial-loading').style.display = "none";
+                            landCount++;
+                        }
+                    })
+                }
+                else if (houseCount > 0) {
+                    document.getElementById('table-information-detailedinfo').className = "table-buttons-div";
+                    document.getElementById('table-information-land').className = "table-buttons-div";
+                    document.getElementById('table-information-building').className = "table-buttons-div-active";
+                    document.getElementById('table-land').style.display = "none";
+                    document.getElementById('table-detailedinfo').style.display = "none";
+                    document.getElementById('table-house').style.display = "block";
+                    document.getElementById('partial-loading').style.display = "none";
+                }
+            }
+        }
+    }
+
+</script>
+
+@if (Model.First().FULLNAME == "")
+{
+    <div class="table" id="table">
+        <div id="emptyform" class="emptyform">
+        </div>
+    </div>
+}
+else if (Model.First().FULLNAME == "null")
+{
+    <div class="table" id="table">
+        <div class="errorsearch">
+            Запись не найдена! Проверьте введенные данные
+        </div>
+    </div>
+}
+else if (Model.First().FULLNAME != "")
+{
+    <div class="table" id="table">
+        <div class="information-container" id="information-container">
+            <div class="table-buttons">
+                <div id="table-information-detailedinfo" class="table-buttons-div-active" onclick="DetailedInfo()">Детальная информация</div>
+                <div id="table-information-land" class="table-buttons-div" onclick="GetFulltextStead()">Земельный участок</div>
+                <div id="table-information-building" class="table-buttons-div" onclick="GetFulltextHouse()">Здание (сооружение)</div>
+            </div>
+            <div class="table-information">
+                <table id="table-detailedinfo" class="information">
+                    <tr>
+                        <td class="name">
+                            Муниципальное деление
+                        </td>
+                        <td class="data">
+                            @Model.First().FULLNAME
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Административное деление
+                        </td>
+                        <td class="data">
+                            @Model.First().FULLNAME
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            ИФНС ФЛ
+                        </td>
+                        <td class="data">
+                            @Model.First().IFNSFL
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            ИФНС ЮЛ
+                        </td>
+                        <td class="data">
+                            @Model.First().IFNSUL
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            ОКАТО
+                        </td>
+                        <td class="data">
+                            @Model.First().OKATO
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            ОКТМО
+                        </td>
+                        <td class="data">
+                            @Model.First().OKTMO
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Почтовый индекс
+                        </td>
+                        <td class="data">
+                            @Model.First().POSTALCODE
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Уникальный номер <br>
+                            адресообразующего элемента<br>
+                            в государственном <br>
+                            адресном реестре
+                        </td>
+                        <td id="data-aoguid" class="data">@Model.First().AOGUID</td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Уникальный номер реестровой записи
+                        </td>
+                        <td class="data">
+                            @Model.First().OKTMO
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Статус записи
+                        </td>
+                        @if (Convert.ToInt32(Model.First().ACTSTATUS) == 1)
+                        {
+                            <td class="data">
+                                Актуальна
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="data">
+                                Не актуальна
+                            </td>
+                        }
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Дата внесения записи
+                        </td>
+                        <td class="data">
+                            @Model.First().STARTDATE
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Дата актуализации записи
+                        </td>
+                        <td class="data">
+                            @Model.First().UPDATEDATE
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Нормативный документ
+                        </td>
+                        <td class="data">
+                            @Model.First().NORMDOC
+                        </td>
+                    </tr>
+                </table>
+
+                <table id="table-land" class="table-land" style="display: none">
+                    <tr>
+                        <th class="land-name">Наименование</th>
+                        <th class="land-name">Индекс</th>
+                        <th class="land-name">Налоговый орган ФЛ</th>
+                        <th class="land-name">Налоговый орган ИЛ</th>
+                        <th class="land-name">ОКАТО</th>
+                        <th class="land-name">ОКТМО</th>
+                        <th class="land-name">Уникальный идентификатор</th>
+                        <th class="land-name">Кадастровый номер</th>
+                        <th class="land-name">Уникальный номер реестровой записи</th>
+                    </tr>
+                    <tr id="table-land-datas">
+                    </tr>
+                </table>
+
+                <table id="table-house" class="table-house" style="display: none">
+                    <tr>
+                        <th class="house-name">Наименование</th>
+                        <th class="house-name">Индекс</th>
+                        <th class="house-name">Налоговый орган ФЛ</th>
+                        <th class="house-name">Налоговый орган ИЛ</th>
+                        <th class="house-name">ОКАТО</th>
+                        <th class="house-name">ОКТМО</th>
+                        <th class="house-name">Уникальный идентификатор</th>
+                        <th class="house-name">Кадастровый номер</th>
+                        <th class="house-name">Уникальный номер реестровой записи</th>
+                    </tr>
+                    <tr id="table-house-datas">
+                    </tr>
+                </table>
+
+                <h3 id="partial-loading" class="loading" style="display: none;">Загрузка...</h3>
+                <label id="aolevel" style="display: none;">@Model.First().AOLEVEL</label>
+
+            </div>
+        </div>
+    </div>
+}
+
+@Scripts.Render("~/scripts/jquery-3.4.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

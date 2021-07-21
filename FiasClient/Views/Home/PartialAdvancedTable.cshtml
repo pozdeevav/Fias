@@ -1,0 +1,81 @@
+﻿@model Dictionary<int, FiasClient.Models.AddrobjModel>.ValueCollection
+
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="~/Content/AdvancedSearch.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+    @if (Model.First().FORMALNAME == null)
+    {
+    <div id="advanced-info" class="advanced-info">
+        <div class="advanced-container">
+        <table class="advanced-table">
+            </table>
+        </div>
+    </div>
+    }
+    else if (Model.First().FORMALNAME != null)
+    {
+    <div id="advanced-info" class="advanced-info">
+        <div class="advanced-container">
+            <table class="advanced-table">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Статус записи</th>
+                    <th>Тип</th>
+                    <th>Уникальный номер адреса объекта адресации в ГАР</th>
+                    <th>Индекс</th>
+                    <th>ОКАТО</th>
+                    <th>ОКТМО</th>
+                    <th>Кадастровый номер</th>
+                    <th>Уникальный номер реестровой записи</th>
+                    <th>Код ИФНС ФЛ</th>
+                    <th>Код ИФНС ЮЛ</th>
+                </tr>
+                <tr id="advanced-table-tr">
+                    <td>@Model.First().FULLNAME</td>
+                    @if (Convert.ToInt32(Model.First().ACTSTATUS) == 1)
+                    {
+                        <td>Актуальна</td>
+                    }
+                    else if (Convert.ToInt32(Model.First().ACTSTATUS) == 0)
+                    {
+                        <td>Не актуальна</td>
+                    }
+                    <td>@Model.First().SHORTNAME</td>
+                    <td>@Model.First().AOGUID</td>
+                    @if (Model.First().POSTALCODE == null)
+                    {
+                        <td>--</td>
+                    }
+                    else
+                    {
+                        <td>@Model.First().POSTALCODE</td>
+                    }
+                    @if (Model.First().OKATO == null)
+                    {
+                        <td>--</td>
+                    }
+                    else
+                    {
+                        <td>@Model.First().OKATO</td>
+                    }
+                    @if (Model.First().OKTMO == null)
+                    {
+                        <td>--</td>
+                    }
+                    else
+                    {
+                        <td>@Model.First().OKTMO</td>
+                    }
+                    <td></td>
+                    <td></td>
+                    <td>@Model.First().IFNSFL</td>
+                    <td>@Model.First().IFNSUL</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    }

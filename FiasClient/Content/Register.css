@@ -1,0 +1,195 @@
+﻿body {
+    font-family: 'oswald', sans-serif;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header {
+    margin: 50px;
+    padding-left: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-text {
+    text-decoration: none;
+    color: black;
+    font-size: 36px;
+}
+
+    .header-text:hover {
+        color: black;
+    }
+
+.header-line {
+    font-weight: 100;
+}
+
+.header-img {
+    display: inline-block;
+    margin-top: -3px;
+    margin-left: 5px;
+}
+
+.authorization-form {
+    width: 720px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.authorization-container {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.authorization-login {
+    width: 100%;
+    margin: 10px;
+}
+
+.authorization-login-label {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.authorization-login-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.authorization-password {
+    width: 100%;
+    margin: 10px;
+    margin-left: 5px;
+}
+
+.authorization-password-label {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.authorization-password-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.authorization-password-confirm {
+    width: 100%;
+    margin: 10px;
+    margin-left: -45px;
+    display: none;
+}
+
+.authorization-password-confirm-label {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.authorization-password-confirm-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.authorization-btns {
+    display: flex;
+    justify-content: center;
+    margin-left: 55px;
+}
+
+.authorization-btns-registration {
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.authorization-btns-backtologin-link {
+    font-size: 20px;
+    margin-left: 55px;
+}
+
+.authorization-btns-create-account {
+    margin-left: 55px;
+}
+
+.authorization-btns-create-account-input {
+    font-size: 20px;
+    padding: 5px 50px;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid #668ba3;
+    background-color: #65d1fc;
+}
+
+.authorization-btns-create-account-input:hover {
+    transition: linear .2s;
+    cursor: pointer;
+    background-color: #389cc4;
+    color: #ffffff;
+}
+
+.authorization-btns-login {
+    margin: 5px 20px;
+}
+
+.authorization-btns-login-input {
+    font-size: 20px;
+    padding: 5px 50px;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid #668ba3;
+    background-color: #65d1fc;
+}
+
+.authorization-btns-login-input:hover {
+    transition: linear .2s;
+    cursor: pointer;
+    background-color: #389cc4;
+    color: #ffffff;
+}
+
+.authorization-btns-register {
+    margin: 5px;
+}
+
+.authorization-btns-register-input {
+    font-size: 20px;
+    padding: 5px 30px;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid #668ba3;
+    background-color: #65d1fc;
+}
+
+.authorization-btns-register-input:hover {
+    transition: linear .2s;
+    cursor: pointer;
+    background-color: #389cc4;
+    color: #ffffff;
+}
+
+.authorization-error {
+    display: none;
+    margin-left: 55px;
+}
+
+.authorization-error-label {
+    color: #ff0000;
+    font-size: 20px;
+}

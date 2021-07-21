@@ -1,0 +1,279 @@
+﻿body {
+    font-family: 'oswald', sans-serif;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.fulltext {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header {
+    margin: 50px;
+    padding-left: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-text {
+    text-decoration: none;
+    color: black;
+    font-size: 36px;
+}
+
+.header-text:hover {
+    color: black;
+}
+
+.header-line {
+    font-weight: 100;
+}
+
+.header-img {
+    display: inline-block;
+    margin-top: -3px;
+    margin-left: 5px;
+}
+
+.authorization {
+    position: absolute;
+    left: 94%;
+    top: -5px;
+}
+
+.authorization input {
+    padding: 5px 25px;
+    margin: 10px 30px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    background-color: #65d1fc;
+}
+
+ .authorization input:hover {
+    transition: linear .2s;
+    cursor: pointer;
+    background-color: #389cc4;
+    color: #ffffff;
+ }
+
+.fulltext-form {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../Content/images/city0wide.png);
+    left: 0;
+}
+
+.fulltext-container {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.radio {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.fulltext-search {
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+.fulltext-form-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    /*font-style: italic;*/
+    border: 1px solid #668ba3;
+}
+
+.fulltext-form-submit {
+    padding: 5px 20px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    background-color: #65d1fc;
+}
+
+    .fulltext-form-submit:hover {
+        transition: linear .2s;
+        cursor: pointer;
+        background-color: #389cc4;
+        color: #ffffff;
+    }
+
+.fulltextforminfo {
+    height: 30px;
+    margin-top: -5px;
+}
+
+.adv-search {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.advanced-search {
+    text-decoration: none;
+    color: #000000;
+}
+
+.adv-search-img {
+    margin-right: 5px;
+}
+
+    .adv-search-img img {
+        height: 25px;
+    }
+
+.advanced-search:hover {
+    transition: linear .3s;
+    text-decoration: underline #000000;
+}
+
+.emptyform {
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.errorsearch {
+    font-size: 24px;
+    color: #b90000;
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.table {
+    display: block;
+    margin: 10px;
+    /*visibility: hidden;*/
+}
+
+.table-buttons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table-buttons-div {
+    padding: 10px;
+    width: 34%;
+    text-align: center;
+    border-bottom: solid 3px rgba(157, 189, 198, 0.69);
+    border-radius: 5px 5px 0 0;
+    color: #389cc4;
+}
+
+.table-buttons-div-active {
+    padding: 10px;
+    width: 34%;
+    text-align: center;
+    border: solid 3px rgba(157, 189, 198, 0.69);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+    color: #000000;
+}
+
+.table-buttons div:hover {
+    background-color: rgba(157, 189, 198, 0.69);
+    cursor: pointer;
+}
+
+.information-container {
+    display: block;
+    width: 900px;
+    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.table-information {
+    border: solid 3px rgba(157, 189, 198, 0.69);
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.information {
+    margin: auto;
+    font-size: 16px;
+    width: 100%;
+}
+
+.name {
+    font-weight: bold;
+    padding: 10px;
+    text-align: right;
+    width: 50%;
+}
+
+.data {
+    padding: 10px;
+    width: 50%;
+}
+
+.land-name {
+    padding:10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.land-data {
+    padding:10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.house-name {
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.house-data {
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+}
+
+.footer {
+    display: block;
+    margin: auto;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 35px;
+    padding-top: 10px;
+    border-top: 1px #cdffff solid;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 100;
+    background-color: #b6d6d6;
+    min-height: 99%;
+}
+
+.footer label {
+    padding-right: 20px;
+    color: #5e5e5e;
+}
+

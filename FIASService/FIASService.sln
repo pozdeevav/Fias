@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIASService", "FIASService.csproj", "{49DF92F3-32CE-493B-A77B-37D1440EC968}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIASLibary", "..\FIASLibary\FIASLibary.csproj", "{58AE2E59-5F1E-45B9-81C1-79A844C685FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49DF92F3-32CE-493B-A77B-37D1440EC968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49DF92F3-32CE-493B-A77B-37D1440EC968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49DF92F3-32CE-493B-A77B-37D1440EC968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49DF92F3-32CE-493B-A77B-37D1440EC968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58AE2E59-5F1E-45B9-81C1-79A844C685FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58AE2E59-5F1E-45B9-81C1-79A844C685FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58AE2E59-5F1E-45B9-81C1-79A844C685FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58AE2E59-5F1E-45B9-81C1-79A844C685FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A297A11C-7454-436E-907F-2098B4322376}
+	EndGlobalSection
+EndGlobal

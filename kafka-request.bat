@@ -1,0 +1,1 @@
+C:/kafka_2.12-2.4.1/bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic fias-request

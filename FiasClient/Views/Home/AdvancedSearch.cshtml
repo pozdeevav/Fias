@@ -1,0 +1,467 @@
+﻿@model Dictionary<int, FiasClient.Models.AddrobjModel>.ValueCollection
+@{
+    ViewData["Title"] = "Расширенный поиск | Информационная адресная система";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="~/Content/AdvancedSearch.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<script>
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function switchTextAdm() {
+        document.getElementById('search-label-district').innerHTML = "Район";
+        $('#search-input-district-root').attr("placeholder", "Введите район/округ");
+        document.getElementById('search-label-settlement').innerHTML = "Город";
+        $('#search-input-settlement').attr("placeholder", "Введите город");
+    }
+    function switchTextMun() {
+        document.getElementById('search-label-district').innerHTML = "Муниципальный район/округ";
+        $('#search-input-district-root').attr("placeholder", "Введите муниципальный район/округ");
+    }
+
+    var Radio = 1;
+    var where = "district";
+
+    function WhereSettle() {
+        where = "settlement";
+    }
+    function WhereLoc() {
+        where = "locality";
+    }
+
+    function GetRadio() {
+        if (document.getElementById('radio-input1').checked) {
+            document.getElementById('radio').value = 1;
+            Radio = 1;
+        }
+        if (document.getElementById('radio-input2').checked) {
+            document.getElementById('radio').value = 0;
+            Radio = 0;
+        }
+    }
+
+    function Clear() {
+        $('select').not(document.getElementById('search-input-subject')).empty();
+        $('select').not(document.getElementById('search-input-subject').append('<option selected disabled><option>'));
+    }
+
+    function GetDistrict() {
+        var Id = uuidv4();
+        var Parent = document.getElementById('search-input-subject').value;
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getchild/" + Id + "/" + Parent + "/" + Radio + "/" + 3,
+            type: "POST"
+        });
+        $.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    if (response[i].FULLNAME.includes("г ") == true) {
+                        response[i].FULLNAME += ' городской округ';
+                    }
+                    $('#search-input-district').append('<option id="search-input-district-hidden" label="' + response[i].FULLNAME + '" value="' + response[i].AOGUID + '"></option>');
+                    i++;
+                }
+            }
+        })
+
+        
+    }
+
+    function GetLocOrNot() {
+        if ($('#search-input-district option:selected').attr("label").includes("г") == true) {
+            where = "district";
+            GetLocality();
+            GetPlanningElement();
+            GetRoadNetworkElement();
+        }
+        else {
+            GetSettlement();
+            GetLocality();
+        }
+    }
+
+    function GetSettlement() {
+        var Id = uuidv4();
+        var Parent = document.getElementById('search-input-district').value;
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getchild/" + Id + "/" + Parent + "/" + Radio + "/" + 4,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-settlement').append('<option id="search-input-settlement-hidden" label="' + response[i].FULLNAME + '" value="' + response[i].AOGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+
+    function GetLocality() {
+        var Id = uuidv4();
+        var Parent = document.getElementById('search-input-district').value;
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getchild/" + Id + "/" + Parent + "/" + Radio + "/" + 6,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-locality').append('<option id="search-input-locality-hidden" label="' + response[i].FULLNAME + '" value="' + response[i].AOGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+
+    function GetPlanningElement() {
+        var Id = uuidv4();
+        var Parent;
+        if (where == "locality") {
+            Parent = document.getElementById('search-input-locality').value;
+        }
+        else if (where == "settlement") {
+            Parent = document.getElementById('search-input-settlement').value;
+        }
+        else if (where == "district") {
+            Parent = document.getElementById('search-input-district').value;
+        }
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getchild/" + Id + "/" + Parent + "/" + Radio + "/" + 65,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-planningelement').append('<option id="search-input-planningelement-hidden" label="' + response[i].FULLNAME + '" value="' + response[i].AOGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+
+    function GetRoadNetworkElement() {
+        var Id = uuidv4();
+        var Parent;
+        if (where == "locality") {
+            Parent = document.getElementById('search-input-locality').value;
+        }
+        else if (where == "settlement") {
+            Parent = document.getElementById('search-input-settlement').value;
+        }
+        else if (where == "district") {
+            Parent = document.getElementById('search-input-district').value;
+        }
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getchild/" + Id + "/" + Parent + "/" + Radio + "/" + 7,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-roadnetworkelement').append('<option id="search-input-roadnetworkelement-hidden" label="' + response[i].FULLNAME + '" value="' + response[i].AOGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+
+    function GetSteadAndHouse() {
+        GetStead();
+        GetHouse();
+    }
+
+    function GetStead() {
+        var Id = uuidv4();
+        var Parent = document.getElementById('search-input-roadnetworkelement').value;
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/getstead/" + Id + "/" + Parent,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-landnumber').append('<option id="search-input-landnumber-hidden" label="' + "земельный участок " + response[i].NUMBER + '" value="' + response[i].STEADGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+
+    function GetHouse() {
+        var Id = uuidv4();
+        var Parent = document.getElementById('search-input-roadnetworkelement').value;
+        GetRadio();
+        $.ajax({
+            url: "http://localhost:5000/request/gethouse/" + Id + "/" + Parent,
+            type: "POST"
+        });
+        setTimeout($.ajax({
+            url: "http://localhost:59615/response/get/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (a) {
+                var response = a.data;
+                var i = 0;
+                while (i < Object.keys(response).length) {
+                    $('#search-input-BuildingNumber').append('<option id="search-input-BuildingNumber-hidden" label="' + "дом " + response[i].HOUSENUM + '" value="' + response[i].HOUSEGUID + '"></option>');
+                    i++;
+                }
+            }
+        }), 1000)
+    }
+</script>
+
+<body>
+    <div class="head">
+        <div class="header">
+            <a class="header-text" href="~/Home/FulltextSearch">
+                Информационная адресная система <span class="header-line">|</span>
+                <div class="header-img">
+                    <img src="~/Content/images/icon-company.png" height="50" />
+            </a>
+        </div>
+    </div>
+    <div class="fulltext-link">
+        <a class="back-to-fulltext" href="/Home/FulltextSearch">Вернуться к полнотекстовому поиску</a>
+    </div>
+    <div class="search">
+        <div class="search-container">
+            @using (Ajax.BeginForm("PartialAdvancedTable", new AjaxOptions { UpdateTargetId = "advanced-info", HttpMethod = "POST" }))
+            {
+                <div class="radio">
+                    <label><input name="radiogroup" id="radio-input1" class="radio-input" type="radio" onclick="switchTextMun()" checked="checked" required> Муниципальное деление</label>
+                    <label><input name="radiogroup" id="radio-input2" class="radio-input" type="radio" onclick="switchTextAdm()" required> Административно-территориальное деление</label>
+                    <input id="radio" name="radio" value="" type="text" style="display: none;" />
+                </div>
+                <div class="search-forms">
+                    <div class="search-forms-1">
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="SubjectRF">Субъект Российской Федерации</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="subject" id="search-input-subject" class="search-input-select" onchange="GetDistrict()">
+                                    <option id="search-input-subject-hidden" selected disabled></option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option id="search-input-subject-hidden" label="@item.FULLNAME" value="@item.AOGUID"></option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="District" id="search-label-district">Муниципальный район\округ</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="district" id="search-input-district" class="search-input-district" onchange="GetLocOrNot()">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="Settlement" id="search-label-settlement">Город</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="settlement" id="search-input-settlement" class="search-input-settlement" onchange="WhereSettle(), GetPlanningElement(), GetRoadNetworkElement()">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="Locality">Населенный пункт</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="locality" id="search-input-locality" class="search-input-locality" onchange="WhereLoc(), GetPlanningElement(), GetRoadNetworkElement()">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="PlanningElement">Элемент планировочной структуры</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="planningelement" id="search-input-planningelement" class="search-input-planningelement" onchange="">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="RoadNetworkElement">Элемент улично-дорожной сети</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="roadnetworkelement" id="search-input-roadnetworkelement" class="search-input-roadnetworkelement" onchange="GetSteadAndHouse()">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="landnumber">Номер земельного участка</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="landnumber" id="search-input-landnumber" class="search-input-landnumber" onchange="">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="BuildingNumber">Номер здания/сооружения</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="BuildingNumber" id="search-input-BuildingNumber" class="search-input-BuildingNumber" onchange="">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="CarSeatNumber">Номер помещения</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="CarSeatNumber" id="search-input-CarSeatNumber" class="search-input-CarSeatNumber" onchange="">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="RoomNumber">Номер комнаты</label>
+                            </div>
+                            <div class="search-input">
+                                <select name="RoomNumber" id="search-input-RoomNumber" class="search-input-RoomNumber" onchange="">
+
+                                    <option selected disabled></option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-forms-2">
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="Postcode">Почтовый индекс</label>
+                            </div>
+                            <div class="search-input">
+                                <input placeholder="Введите почтовый индекс" />
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="OKATO">ОКАТО</label>
+                            </div>
+                            <div class="search-input">
+                                <input placeholder="Введите ОКАТО" />
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="OKTMO">ОКТМО</label>
+                            </div>
+                            <div class="search-input">
+                                <input placeholder="Введите ОКТМО" />
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="UniqueNumber">Уникальный номер адреса объекта адресации в государственном адресном реестре</label>
+                            </div>
+                            <div class="search-input">
+                                <input placeholder="Введите уникальный номер" />
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <div class="search-label">
+                                <label asp-for="CadastralNumber">Кадастровый номер</label>
+                            </div>
+                            <div class="search-input">
+                                <input placeholder="Введите кадастровый номер" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-buttons">
+                    <div class="search-inputs">
+                        <input type="submit" value="Поиск" onclick="" />
+                    </div>
+                    <div class="search-inputs">
+                        <input type="button" value="Очистить" onclick="Clear()" />
+                    </div>
+                </div>
+            }
+
+            @Html.Partial("PartialAdvancedTable")
+            
+        </div>
+    </div>
+</body>
+
+@Scripts.Render("~/scripts/jquery-3.4.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

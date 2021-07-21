@@ -1,0 +1,116 @@
+﻿@model Dictionary<int, FiasClient.Models.AddrobjModel>.ValueCollection
+@{
+    ViewData["Title"] = "Полнотекстовый поиск | Информационная адресная система";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="~/Content/FulltextSearch.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<script>
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function Search() {
+            if ($('#fulltext-form-input').val().match(/\W*\.\s\W*\,\s\W*\.\s\W*\,\s\W*\.\s\W*/)) {
+
+            }
+            else {
+                $('#fulltextforminputlist').empty();
+                var Parent = uuidv4();
+                var query = $('#fulltext-form-input').val().replace(/, /g, '&').replace(/ /g, '*');
+                $.ajax({
+                    url: "http://localhost:5000/request/fulltextsearch/" + Parent + "/" + query,
+                    type: "POST"
+                });
+                setTimeout(function () {
+                    $.ajax({
+                        url: "http://localhost:59615/response/get/" + Parent,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (a) {
+                            var response = a.data;
+                            var i = 0;
+                            while (i < Object.keys(response).length) {
+                                $('#fulltextforminputlist').append('<option id="fulltextforminputlist-option" value="' + response[i].Fullname + '"></option>');
+                                i++;
+                            }
+                        }
+                    })
+                }, 5000)
+            }
+    }
+
+</script>
+
+<body>
+    <div id="big-container">
+        <div class="fulltext">
+            <div class="header">
+                <a class="header-text" href="~/Home/FulltextSearch">
+                    Информационная адресная система <span class="header-line">|</span>
+                    <div class="header-img">
+                        <img src="~/Content/images/icon-company.png" height="50px" />
+                    </div>
+                </a>
+            </div>
+        </div>
+        @using (Ajax.BeginForm("PartialFulltextTable", new AjaxOptions { UpdateTargetId = "table", HttpMethod = "POST", LoadingElementId = "loading" }))
+        {
+            <div class="fulltext-form">
+                <div class="fulltext-container">
+
+                    <div class="radio">
+                        <label id="yoyo" class="radio-text">
+                            <input name="radiogroup" class="fulltext-form-radio" type="radio" value="Муниципальное деление" checked="checked" required />
+                            Муниципальное деление
+                        </label>
+                        <label class="radio-text">
+                            <input name="radiogroup" class="fulltext-form-radio" type="radio" value="Административно-территориальное деление" required />
+                            Административно-территориальное деление
+                        </label>
+                    </div>
+                    <div class="fulltext-search">
+                        <div class="fulltext-form-search">
+                            <input name="fulltextforminput" id="fulltext-form-input" class="fulltext-form-input" list="fulltextforminputlist" type="text" placeholder="Введите адрес"
+                                   autocomplete="off" aria-autocomplete="list" onchange="Search()" required />
+                            <datalist id="fulltextforminputlist" class="fulltextforminputlist">
+                                <option id="fulltextforminput-hidden">Данные не найдены</option>
+                            </datalist>
+                            <input id="fulltextformsub" class="fulltext-form-submit" type="submit" value="Поиск" />
+                            <img class="fulltextforminfo" src="https://img.icons8.com/ios-filled/50/000000/info.png" title="Введите адрес, через пробел, используя только наименования адресных объектов в следующем порядке:
+-улица,
+-город/населенный пункт,
+-округ/район,
+-область." />
+                        </div>
+                        <div class="adv-search">
+                            <div class="adv-search-img">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/advanced-search.png" />
+                            </div>
+                            <div class="adv-search-label">
+                                <a class="advanced-search" href="~/Home/AdvancedSearch">Расширенный поиск</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3 id="loading" style="text-align: center; display: none;">Загрузка...</h3>
+            @Html.Partial("PartialFulltextTable")
+
+        }
+
+    </div>
+</body>
+
+@Scripts.Render("~/scripts/jquery-3.4.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
